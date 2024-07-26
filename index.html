@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
     <!-- Shaka Player UI compiled library: -->
-    <script src="dist/shaka-player.ui.min.js"></script>
+    <script src="dist/shaka-player.ui.debug.min.js"></script>
     <link rel="stylesheet" type="text/css" href="dist/controls.min.css">
     <!-- IMA DAI SDK: -->
     <script crossorigin="localhost" type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
     <script crossorigin="localhost" type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3_dai.js"></script>
+    <!-- app code -->
     <script src="myapp.js"></script>
   </head>
   <body>
-    <div data-shaka-player-container style="height:100vh">
+    <div data-shaka-player-container>
       <video autoplay data-shaka-player id="video" style="width:100%;height:100%"></video>
     </div>
   </body>
