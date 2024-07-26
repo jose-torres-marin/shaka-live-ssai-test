@@ -12,8 +12,8 @@ async function init() {
   window.ui = ui;
 
   // Listen for error events.
-  player.addEventListener('error', onPlayerErrorEvent);
-  controls.addEventListener('error', onUIErrorEvent);
+  player.addEventListener('error', console.log);
+  controls.addEventListener('error', console.log);
 
   // Try to load a manifest.
   // This is an asynchronous process.
@@ -48,28 +48,13 @@ async function requestStream(adManager) {
     return uri;
   }
   catch(e) {
-    onPlayerError(e);
+    console.log(e);
   }
 }
 
-function onPlayerError(error) {
-  console.error(error);
-}
-
-function onPlayerErrorEvent(event) {
-  onPlayerError(event);
-}
-
-function onUIErrorEvent(event) {
-  onPlayerError(event);
-}
-
-function initFailed(event) {
-  console.error('-- Unable to load the UI library!', event);
-}
 
 // Listen to the custom shaka-ui-loaded event, to wait until the UI is loaded.
 document.addEventListener('shaka-ui-loaded', init);
 // Listen to the custom shaka-ui-load-failed event, in case Shaka Player fails
 // to load (e.g. due to lack of browser support).
-document.addEventListener('shaka-ui-load-failed', initFailed);
+document.addEventListener('shaka-ui-load-failed', console.log);
