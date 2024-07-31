@@ -1,5 +1,7 @@
 // myapp.js
 
+const ASSET_KEY = 'PSzZMzAkSXCmlJOWDmRj8Q'; //286166234322-europe-west1-gbnews-3-v7';
+
 async function init() {
   // When using the UI, the player is made automatically by the UI object.
   const video = document.getElementById('video');
@@ -25,7 +27,7 @@ async function init() {
   } catch (error) {
     onPlayerError(error);
   }
-  if(url) player.load(uri);
+  if(url) player.load(url);
   else console.log('-- no url to load');
 }
 
@@ -41,7 +43,7 @@ function initializeContainer(player) {
 async function requestStream(adManager) {
   console.log('-- request stream');
   const streamRequest = new google.ima.dai.api.LiveStreamRequest();
-  streamRequest.assetKey = '286166234322-europe-west1-gbnews-3-v7';
+  streamRequest.assetKey = ASSET_KEY;
   try {
     const uri = await adManager.requestServerSideStream(streamRequest);
     console.log(uri);
